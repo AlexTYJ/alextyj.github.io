@@ -4,12 +4,113 @@
   
   
   <entry>
+    <title>HuBert论文阅读</title>
+    <link href="/2025/02/19/HuBert%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    <url>/2025/02/19/HuBert%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
+    
+    <content type="html"><![CDATA[<figure><img src="HuBert_1.png" alt="HuBert 示意图" /><figcaption aria-hidden="true">HuBert 示意图</figcaption></figure><h1 id="概述">概述</h1><ul><li>作用：从无监督数据中学习隐层表示。</li><li>端口：输入为音频，输出为隐层表示。</li></ul><h1 id="训练过程">训练过程：</h1><ol type="1"><li>利用Acoustic Unit Discovery System得到label</li><li>通过HuBERT从mask之后的输入中得到隐层表示z</li><li>计算label和预测之间的loss</li></ol><h1 id="细节">细节</h1><h2 id="acoustic-unit-discovery">Acoustic Unit Discovery</h2><p>可以理解为语音离散化。</p><p>一些记号：</p><p>T个frame的语音 $ X = [x_1,..,x_T] $。模型输出的hidden units为 $h(X)=Z=[z_1,..,z_T]$，其中 <span class="math inline">\(z_t \in[C]\)</span>是一个C-class的变量。h是一个非监督的聚类模型，如k-means。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>语音技术</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Zipformer论文阅读</title>
+    <link href="/2025/02/19/Zipformer%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    <url>/2025/02/19/Zipformer%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>语音技术</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VietASR论文阅读</title>
+    <link href="/2025/02/19/VietASR%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    <url>/2025/02/19/VietASR%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
+    
+    <content type="html"><![CDATA[<p>VietASR是一个针对小语种的ASR Pipeline。优化了HuBERT pre-training forZipformer并introduces a supervised codebook。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>语音技术</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>阿拉伯语ASR</title>
+    <link href="/2025/01/20/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%ADASR/"/>
+    <url>/2025/01/20/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%ADASR/</url>
+    
+    <content type="html"><![CDATA[<p>挑战：</p><ul><li>Language Variants:Modern Standard Arabic(MSA), ClassicalArabic(CA，古兰经), and Dialectal Arabic(DA，方言)</li><li>Dialectal Variations：不同地区的方言</li><li>Code-Switching (CS) ：夹杂法文和英文<br /></li><li>Non-Standardized Orthography: DA没有一个uniform orthography</li><li>Annotated Data：缺少标注数据</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>语音技术</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>阿拉伯语数据集</title>
+    <link href="/2025/01/19/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%AD%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
+    <url>/2025/01/19/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%AD%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
+    
+    <content type="html"><![CDATA[<h1 id="casablanca">Casablanca</h1><p>论文：https://anthropology/2024.emnlp-main.1211.pdf</p><p>优势：全人工标注（最大的全监督阿拉伯方言数据集）</p><ul><li><p>时长：48h</p></li><li><p>方言：8种（ALG, EGY, JOR, MOR, UAE, PAL, MAU,YEM），8个标签</p></li><li><p>Segmentation：全人工标注</p></li><li><p>Transcription：全人工标注</p></li><li><p>code-switching ：英文、法文（加音译）</p></li></ul><h1 id="qasr">QASR</h1><p>论文：https://arxiv.org/abs/2106.13000</p><ul><li><p>时长：2000h 新闻频道</p></li><li><p>lightly supervisedtranscriptions（训练集中文本为转录的文本，不完全准确，并非人工标注）</p></li><li><p>采样率：16kHz</p></li><li><p>包含语言学驱动的分段（linguistically motivatedsegmentation）、标点符号（punctuation）、说话者信息（speaker informationamong others）</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>语音技术</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>语音基础知识</title>
     <link href="/2025/01/19/%E8%AF%AD%E9%9F%B3%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <url>/2025/01/19/%E8%AF%AD%E9%9F%B3%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>Whisper：弱监督方法。将数据集从4h做到了68h。模型仅仅是Transformer模型。</p>]]></content>
     
+    
+    <categories>
+      
+      <category>语音技术</category>
+      
+    </categories>
     
     
   </entry>
@@ -43,6 +144,12 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>basic</tag>
+      
+    </tags>
     
   </entry>
   

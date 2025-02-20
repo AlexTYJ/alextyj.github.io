@@ -19,24 +19,23 @@
   <meta name="author" content="Yujie Tu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="我曾在很多课程中学习过补码的知识。然而，大多数时候我受到的教育都是机械地接受: 正数和0的补码就是该数字本身再补上最高比特0。负数的补码则是将其绝对值按位取反再加1。补码可以避免+0和-0的歧义。但是为什么要这么定义，以及它是如何避免+0和-0的，很多地方都没有解释。本文通过另一种看待补码的角度，尝试解释上述问题。   首先，我们回顾原码的定义：  原码是指一个二进制数左边加上符号位后">
+    <meta name="description" content="Casablanca 论文：https:&#x2F;&#x2F;anthropology&#x2F;2024.emnlp-main.1211.pdf 优势：全人工标注（最大的全监督阿拉伯方言数据集）  时长：48h 方言：8种（ALG, EGY, JOR, MOR, UAE, PAL, MAU, YEM），8个标签 Segmentation：全人工标注 Transcription：全人工标注 code-swi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="补码再思考">
-<meta property="og:url" content="http://example.com/2024/01/18/complement/index.html">
+<meta property="og:title" content="阿拉伯语数据集">
+<meta property="og:url" content="http://example.com/2025/01/19/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%AD%E6%95%B0%E6%8D%AE%E9%9B%86/index.html">
 <meta property="og:site_name" content="Alex&#39;s Blog">
-<meta property="og:description" content="我曾在很多课程中学习过补码的知识。然而，大多数时候我受到的教育都是机械地接受: 正数和0的补码就是该数字本身再补上最高比特0。负数的补码则是将其绝对值按位取反再加1。补码可以避免+0和-0的歧义。但是为什么要这么定义，以及它是如何避免+0和-0的，很多地方都没有解释。本文通过另一种看待补码的角度，尝试解释上述问题。   首先，我们回顾原码的定义：  原码是指一个二进制数左边加上符号位后">
+<meta property="og:description" content="Casablanca 论文：https:&#x2F;&#x2F;anthropology&#x2F;2024.emnlp-main.1211.pdf 优势：全人工标注（最大的全监督阿拉伯方言数据集）  时长：48h 方言：8种（ALG, EGY, JOR, MOR, UAE, PAL, MAU, YEM），8个标签 Segmentation：全人工标注 Transcription：全人工标注 code-swi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-19T03:22:29.000Z">
-<meta property="article:modified_time" content="2025-01-19T17:07:02.442Z">
+<meta property="article:published_time" content="2025-01-19T18:33:51.000Z">
+<meta property="article:modified_time" content="2025-01-21T05:03:35.443Z">
 <meta property="article:author" content="Yujie Tu">
-<meta property="article:tag" content="basic">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>补码再思考 - Alex&#39;s Blog</title>
+  <title>阿拉伯语数据集 - Alex&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -227,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="补码再思考"></span>
+            <span id="subtitle" data-typed-text="阿拉伯语数据集"></span>
           
         </div>
 
@@ -238,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-18 19:22" pubdate>
-          2024年1月18日 晚上
+        <time datetime="2025-01-19 10:33" pubdate>
+          2025年1月19日 上午
         </time>
       </span>
     
@@ -250,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          135 字
         
       </span>
     
@@ -261,7 +260,7 @@
         
         
         
-          9 分钟
+          2 分钟
         
       </span>
     
@@ -298,41 +297,33 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">补码再思考</h1>
+            <h1 id="seo-header">阿拉伯语数据集</h1>
             
             
               <div class="markdown-body">
                 
-                <p>  我曾在很多课程中学习过补码的知识。然而，大多数时候我受到的教育都是机械地接受:
-<strong>正数和0的补码就是该数字本身再补上最高比特0。负数的补码则是将其绝对值按位取反再加1。补码可以避免+0和-0的歧义。</strong>但是为什么要这么定义，以及它是如何避免+0和-0的，很多地方都没有解释。本文通过另一种看待补码的角度，尝试解释上述问题。</p>
-  首先，我们回顾原码的定义：
-<center>
-<strong>原码是指一个二进制数左边加上符号位后所得到的码</strong>
-</center>
-<p>  由于原码是强行添加的符号位，因此<strong>符号位本身并没有权重</strong>。然而，数学知识告诉我们，在一个正常的进制中，每个位上都应该有某个权重。因此，原码在数学上是<strong>不完备的</strong>，势必会产生一些问题。而这个问题在这里就体现为+0和-0。</p>
-<p>  那么事情就变得很清晰了：我们需要给符号位也赋予一个权重。</p>
-<p>  我们采用如下定义：将第N位的权重定义为<span
-class="math inline">\(-2^{(N-1)}\)</span>,第i (i&lt;N)
-位的权重定义为<span class="math inline">\(-2^{(i-1)}\)</span>。</p>
-<p>  好了，这样我们的符号位也有了权重。但是，为什么是这个权重？我们可以来看看这样定义会发生什么。</p>
-<p>  我们以一个四位二进制数1101为例。当它作为无符号普通二进制数时，1101=13。当它作为补码时，1101=-3。现在我断言，它们在进行运算的时候，作用是相同的。为什么呢？这是因为四位二进制补码的表示范围是<span
-class="math inline">\([-2^{(4-1)},2^{(4-1)-1}]=[-8,7]\)</span>,这是一个长度为16的区间，也就是说，由于溢出的原因，所有得到的结果都要<strong>模16</strong>到[-8,7]这个区间中，所以-3就等于+13。这样，补码就巧妙地将带符号的二进制数中的<strong>负数转化为了正数</strong>，从而可以正常的进行二进制计算，而且更加符合加法器的原理。</p>
-<p>  现在我们来看看0的问题。让我们来看看1101加几等于0。由于模了16，所以16=0。所以1101+0011=10000=0000。而这个0011，也就是1101的相反数。这就是本文最开始的经验性定义的由来——因为我们要凑10000，所以把正数取反相加，就是1111，再加1，就可以完美产生10000这个数。因此，一个负数的补码，就是它对应的正数取反加1。</p>
-<p>  看到这里，你应该知道了补码的本质优势————可以通过模运算的性质，简单地将加法运算扩展到负数，而不需要特殊的硬件电路或逻辑。</p>
-<p>  最后，我还很好奇，为什么反码的英文是“1's
-complement”，补码的英文是“2's
-complement”。关于这方面的中文资料很少。知乎用户 <span class="citation"
-data-cites="前端西瓜哥">@前端西瓜哥</span> 在他的知乎文章<a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/498147694">补码到底是什么？</a>中
-认为： &gt;补码原意是
-“2的补数”。这个命名虽然没有描述补码的定义，但它描述了补码的一个特性：一个补码可以通过被<span
-class="math inline">\(2^w\)</span>减去，得到它的相反数，即<span
-class="math inline">\(-x=2^w-x\)</span>。</p>
-<p>  我认为这种说法有待商榷，因为以此类推，因为反码是1's
-complement，所以一个反码可以通过被1减去，得到它的相反数。而这显然与反码的定义相冲突。</p>
-<p>  还有一种说法是ChatGPT说的，它说反码只做了一个操作，涉及到1个值，所以是1's
-complement。补码因为还要+1，涉及到2个值，所以是2's
-complement。我认为这种说法也很牵强。总之我没有在中文互联网查到让我满意的答案。欢迎读者查阅相关英文文献并和我交流！</p>
+                <h1 id="casablanca">Casablanca</h1>
+<p>论文：https://anthropology/2024.emnlp-main.1211.pdf</p>
+<p>优势：全人工标注（最大的全监督阿拉伯方言数据集）</p>
+<ul>
+<li><p>时长：48h</p></li>
+<li><p>方言：8种（ALG, EGY, JOR, MOR, UAE, PAL, MAU,
+YEM），8个标签</p></li>
+<li><p>Segmentation：全人工标注</p></li>
+<li><p>Transcription：全人工标注</p></li>
+<li><p>code-switching ：英文、法文（加音译）</p></li>
+</ul>
+<h1 id="qasr">QASR</h1>
+<p>论文：https://arxiv.org/abs/2106.13000</p>
+<ul>
+<li><p>时长：2000h 新闻频道</p></li>
+<li><p>lightly supervised
+transcriptions（训练集中文本为转录的文本，不完全准确，并非人工标注）</p></li>
+<li><p>采样率：16kHz</p></li>
+<li><p>包含语言学驱动的分段（linguistically motivated
+segmentation）、标点符号（punctuation）、说话者信息（speaker information
+among others）</p></li>
+</ul>
 
                 
               </div>
@@ -351,7 +342,7 @@ complement。我认为这种说法也很牵强。总之我没有在中文互联�
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  <a href="/categories/%E8%AF%AD%E9%9F%B3%E6%8A%80%E6%9C%AF/" class="category-chain-item">语音技术</a>
   
   
 
@@ -363,13 +354,6 @@ complement。我认为这种说法也很牵强。总之我没有在中文互联�
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/basic/" class="print-no-link">#basic</a>
-      
-    </div>
-  
 </div>
 
 
@@ -378,8 +362,8 @@ complement。我认为这种说法也很牵强。总之我没有在中文互联�
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>补码再思考</div>
-      <div>http://example.com/2024/01/18/complement/</div>
+      <div>阿拉伯语数据集</div>
+      <div>http://example.com/2025/01/19/阿拉伯语数据集/</div>
     </div>
     <div class="license-meta">
       
@@ -391,7 +375,7 @@ complement。我认为这种说法也很牵强。总之我没有在中文互联�
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月18日</div>
+          <div>2025年1月19日</div>
         </div>
       
       
@@ -423,15 +407,21 @@ complement。我认为这种说法也很牵强。总之我没有在中文互联�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/17/hello-world/" title="Hello World">
+                      <a href="/2025/01/20/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%ADASR/" title="阿拉伯语ASR">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hello World</span>
+                        <span class="hidden-mobile">阿拉伯语ASR</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2025/01/19/%E8%AF%AD%E9%9F%B3%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="语音基础知识">
+                        <span class="hidden-mobile">语音基础知识</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
