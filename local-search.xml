@@ -8,7 +8,7 @@
     <link href="/2025/02/19/HuBert%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     <url>/2025/02/19/HuBert%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
     
-    <content type="html"><![CDATA[<figure><img src="HuBert_1.png" alt="HuBert 示意图" /><figcaption aria-hidden="true">HuBert 示意图</figcaption></figure><h1 id="概述">概述</h1><ul><li>作用：从无监督数据中学习隐层表示。</li><li>端口：输入为音频，输出为隐层表示。</li></ul><h1 id="训练过程">训练过程：</h1><ol type="1"><li>利用Acoustic Unit Discovery System得到label</li><li>通过HuBERT从mask之后的输入中得到隐层表示z</li><li>计算label和预测之间的loss</li></ol><h1 id="细节">细节</h1><h2 id="acoustic-unit-discovery">Acoustic Unit Discovery</h2><p>可以理解为语音离散化。</p><p>一些记号：</p><p>T个frame的语音 $ X = [x_1,..,x_T] $。模型输出的hidden units为 $h(X)=Z=[z_1,..,z_T]$，其中 <span class="math inline">\(z_t \in[C]\)</span>是一个C-class的变量。h是一个非监督的聚类模型，如k-means。</p>]]></content>
+    <content type="html"><![CDATA[<figure><img src="/images/HuBert_1.png" alt="HuBert示意图" /><figcaption aria-hidden="true">HuBert示意图</figcaption></figure><h1 id="概述">概述</h1><ul><li>作用：从无监督数据中学习隐层表示。</li><li>端口：输入为音频，输出为隐层表示。</li></ul><h1 id="训练过程">训练过程：</h1><ol type="1"><li>利用Acoustic Unit Discovery System得到label</li><li>通过HuBERT从mask之后的输入中得到隐层表示z</li><li>计算label和预测之间的loss</li></ol><h1 id="细节">细节</h1><h2 id="acoustic-unit-discovery">Acoustic Unit Discovery</h2><p>可以理解为语音离散化。</p><p>一些记号：</p><p>T个frame的语音 $ X = [x_1,..,x_T] $。模型输出的hidden units为 $h(X)=Z=[z_1,..,z_T]$，其中 <span class="math inline">\(z_t \in[C]\)</span>是一个C-class的变量。h是一个非监督的聚类模型，如k-means。</p><h2 id="mask">Mask</h2>]]></content>
     
     
     
